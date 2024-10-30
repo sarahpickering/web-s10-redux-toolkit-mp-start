@@ -1,7 +1,9 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  deleteQuote
+  deleteQuote,
+  toggleVisibility,
+  editQuoteAuthenticity
 } from '../state/quotesSlice'
 
 export default function Quotes() {
@@ -31,7 +33,9 @@ export default function Quotes() {
                       const actionToDispatch = deleteQuote(qt.id)
                     }}>DELETE</button>
                   <button onClick={() => {/* ✨ dispatch an action */ }}>HIGHLIGHT</button>
-                  <button onClick={() => {/* ✨ dispatch an action */ }}>FAKE</button>
+                  <button onClick={() => {
+                    dispatch(editQuoteAuthenticity(qt.id))
+                  }}>FAKE</button>
                 </div>
               </div>
             ))
@@ -40,7 +44,8 @@ export default function Quotes() {
           !quotes?.length && "No quotes here! Go write some."
         }
       </div>
-      {!!quotes?.length && <button onClick={() => {/* ✨ dispatch an action */ }}>
+      {!!quotes?.length && <button 
+        onClick={() => dispatch(toggleVisibility())}>
         {displayAllQuotes ? 'HIDE' : 'SHOW'} FAKE QUOTES
       </button>}
     </div>

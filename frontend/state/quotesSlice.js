@@ -30,18 +30,19 @@ export const quoteSlice = createSlice({
   name: 'quotes',
   initialState,
   reducers: {
-    toggleVisibility(state, action) {
-
+    toggleVisibility(state) {
+      state.displayAllQuotes = !state.displayAllQuotes
     },
     deleteQuote(state, action) {
       state.quotes = state.quotes
         .filter(qt => qt.id !== action.payload)
     },
     editQuoteAuthenticity(state, action) {
-
+      const quoteToEdit = state.quotes.find(qt => qt.id === action.payload)
+      quoteToEdit.apocryphal = !quoteToEdit.apocryphal
     },
     setHighlightedQuote(state, action) {
-
+      if (state.highlitedQuote)
     },
     createQuote(state, action) {
 
