@@ -1,5 +1,4 @@
-// ✨ create your `quotesSlice` in this module
-
+import { createSlice } from '@reduxjs/toolkit'
 let id = 1
 const getNextId = () => id++
 const initialState = {
@@ -26,3 +25,10 @@ const initialState = {
     },
   ],
 }
+
+export const quoteSlice = createSlice({
+  name: 'quotes',
+  initialState
+})
+
+export default quoteSlice.reducer
