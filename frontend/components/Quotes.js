@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import {
   deleteQuote,
   toggleVisibility,
-  editQuoteAuthenticity
+  editQuoteAuthenticity,
+  setHighlightedQuote
 } from '../state/quotesSlice'
 
 export default function Quotes() {
@@ -28,11 +29,13 @@ export default function Quotes() {
                 <div>{qt.quoteText}</div>
                 <div>{qt.authorName}</div>
                 <div className="quote-buttons">
-                  <button onClick={() => 
-                    {
+                  <button onClick={() => {
                       const actionToDispatch = deleteQuote(qt.id)
+                      dispatch(actionToDispatch)
                     }}>DELETE</button>
-                  <button onClick={() => {/* ✨ dispatch an action */ }}>HIGHLIGHT</button>
+                  <button onClick={() => {
+                    dispatch(setHighlightedQuote(qt.id))
+                     }}>HIGHLIGHT</button>
                   <button onClick={() => {
                     dispatch(editQuoteAuthenticity(qt.id))
                   }}>FAKE</button>

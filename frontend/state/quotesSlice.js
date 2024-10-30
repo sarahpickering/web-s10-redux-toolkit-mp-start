@@ -42,7 +42,11 @@ export const quoteSlice = createSlice({
       quoteToEdit.apocryphal = !quoteToEdit.apocryphal
     },
     setHighlightedQuote(state, action) {
-      if (state.highlitedQuote)
+      if (state.highlightedQuote === action.payload) {
+        state.highlightedQuote = null
+      } else {
+        state.highlightedQuote = action.payload
+      }
     },
     createQuote(state, action) {
 
