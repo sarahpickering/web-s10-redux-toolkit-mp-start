@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
+
 let id = 1
-const getNextId = () => id++
+export const getNextId = () => id++
 const initialState = {
   displayAllQuotes: true,
   highlightedQuote: null,
@@ -49,7 +50,7 @@ export const quoteSlice = createSlice({
       }
     },
     createQuote(state, action) {
-
+      state.quotes.push(action.payload)
     }
   }
 })
