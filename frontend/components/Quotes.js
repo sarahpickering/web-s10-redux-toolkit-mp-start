@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 export default function Quotes() {
   const quotes = useSelector(st => st.quotesState.quotes)
   const displayAllQuotes = useSelector(st => st.quotesState.displayAllQuotes)
-  const highlightedQuote = useSelector(st = st.quotesState.highlightedQuote)
+  const highlightedQuote = useSelector(st => st.quotesState.highlightedQuote)
 
   return (
     <div id="quotes">
