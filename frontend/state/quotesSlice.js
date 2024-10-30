@@ -28,7 +28,32 @@ const initialState = {
 
 export const quoteSlice = createSlice({
   name: 'quotes',
-  initialState
+  initialState,
+  reducers: {
+    toggleVisibility(state, action) {
+
+    },
+    deleteQuote(state, action) {
+
+    },
+    editQuoteAuthenticity(state, action) {
+
+    },
+    setHighlightedQuote(state, action) {
+
+    },
+    createQuote(state, action) {
+
+    }
+  }
 })
+
+export const {
+  createQuote,
+  deleteQuote,
+  editQuoteAuthenticity,
+  setHighlightedQuote,
+  toggleVisibility,
+} = quoteSlice.actions
 
 export default quoteSlice.reducer
