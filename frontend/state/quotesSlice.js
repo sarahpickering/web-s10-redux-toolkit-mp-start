@@ -34,7 +34,8 @@ export const quoteSlice = createSlice({
 
     },
     deleteQuote(state, action) {
-
+      state.quotes = state.quotes
+        .filter(qt => qt.id !== action.payload)
     },
     editQuoteAuthenticity(state, action) {
 
